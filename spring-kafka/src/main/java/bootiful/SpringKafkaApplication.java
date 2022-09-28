@@ -8,14 +8,22 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.integration.dsl.IntegrationFlow;
+import org.springframework.integration.handler.GenericHandler;
+import org.springframework.integration.kafka.dsl.Kafka;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.config.TopicBuilder;
+import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 
 import java.util.Map;
+
+import static bootiful.SpringKafkaApplication.GREETINGS;
+import static bootiful.SpringKafkaApplication.NOTIFICATIONS;
 
 @SpringBootApplication
 public class SpringKafkaApplication {
@@ -24,15 +32,17 @@ public class SpringKafkaApplication {
 		SpringApplication.run(SpringKafkaApplication.class, args);
 	}
 
+	final static String GREETINGS = "greetings";
+
+	final static String NOTIFICATIONS = "notifications";
+
 }
 
 @Slf4j
 @Configuration
 class SpringKafkaConfiguration {
 
-	final static String TOPIC = "greetings";
-
-	@KafkaListener(id = TOPIC, topics = TOPIC)
+	@KafkaListener(id = GREETINGS, topics = GREETINGS)
 	public void listen(@Header(KafkaHeaders.OFFSET) int offset, @Header(KafkaHeaders.RECEIVED_PARTITION) int part,
 			@Payload Greeting in) {
 		var message = Map.of("greeting", in, "partition", part, "offset", offset);
@@ -40,16 +50,55 @@ class SpringKafkaConfiguration {
 	}
 
 	@Bean
-	NewTopic topic() {
-		return TopicBuilder.name(TOPIC).partitions(1).replicas(1).build();
+	NewTopic notifications() {
+		return TopicBuilder.name(NOTIFICATIONS).partitions(1).replicas(1).build();
 	}
 
 	@Bean
-	ApplicationListener<ApplicationReadyEvent> runner(KafkaTemplate<Object, Object> template) {
-		return event -> template.send(TOPIC, new Greeting("Hello, Kafka!"));
+	NewTopic greetings() {
+		return TopicBuilder.name(GREETINGS).partitions(1).replicas(1).build();
+	}
+
+	@Bean
+	ApplicationListener<ApplicationReadyEvent> greetingsRunner(KafkaTemplate<Object, Object> template) {
+		return event -> template.send(GREETINGS, new Greeting("Hello, Kafka!"));
 	}
 
 }
 
 record Greeting(String message) {
+}
+
+@Slf4j
+@Configuration
+class SpringIntegrationKafkaConfiguration {
+
+	@Bean
+	ApplicationListener<ApplicationReadyEvent> notificationsRunner(KafkaTemplate<Object, Object> template) {
+		return event -> template.send(NOTIFICATIONS, new Greeting("This is a notification, mang!"));
+	}
+
+	@Bean
+	ContainerProperties containerProperties() {
+		var cp = new ContainerProperties(NOTIFICATIONS);
+		cp.setGroupId(NOTIFICATIONS + "-group");
+		return cp;
+
+	}
+
+	@Bean
+	IntegrationFlow inboundKafkaIntegrationFlow(ContainerProperties containerProperties,
+			ConsumerFactory<Object, Object> consumerFactory) {
+		var inboundKafka = Kafka//
+				.messageDrivenChannelAdapter(consumerFactory, containerProperties) //
+				.get();
+		return IntegrationFlow.from(inboundKafka) //
+				.handle((GenericHandler<Greeting>) (payload, headers) -> {
+					var joinedKeys = String.join(",", headers.keySet());
+					log.info("new greeting in the integration flow: " + payload + " with keys " + joinedKeys);
+					return null;
+				}) // l
+				.get();
+	}
+
 }
