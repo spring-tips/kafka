@@ -97,9 +97,10 @@ class SpringIntegrationKafkaConfiguration {
 			ObjectMapper objectMapper, @Value("file://${user.home}/Desktop/inbound") File inboundDirectory) {
 		var files = Files //
 				.inboundAdapter(inboundDirectory) //
+				.useWatchService(true)
 				.autoCreateDirectory(true);
 		var kafka = Kafka.outboundChannelAdapter(kafkaTemplate).topic(NOTIFICATIONS).get();
-		return IntegrationFlow.from(files, spca -> spca.poller(pm -> pm.fixedRate(10_000)))
+		return IntegrationFlow.from(files, spca -> spca.poller(pm -> pm.fixedRate(1_000)))
 				.transform(new FileToStringTransformer())
 				.transform((GenericTransformer<String, Greeting>) source -> Json.read(objectMapper, Greeting.class,
 						source))
