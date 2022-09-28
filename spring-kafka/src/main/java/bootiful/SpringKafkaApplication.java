@@ -1,7 +1,10 @@
 package bootiful;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.NewTopic;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -9,19 +12,21 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.dsl.IntegrationFlow;
-import org.springframework.integration.dsl.MessageChannels;
+import org.springframework.integration.file.dsl.Files;
+import org.springframework.integration.file.transformer.FileToStringTransformer;
 import org.springframework.integration.handler.GenericHandler;
 import org.springframework.integration.kafka.dsl.Kafka;
+import org.springframework.integration.transformer.GenericTransformer;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.support.KafkaHeaders;
-import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 
+import java.io.File;
 import java.util.Map;
 
 import static bootiful.SpringKafkaApplication.GREETINGS;
@@ -88,8 +93,20 @@ class SpringIntegrationKafkaConfiguration {
 	}
 
 	@Bean
-	MessageChannel files() {
-		return MessageChannels.direct().get();
+	IntegrationFlow inboundFileOutboundKafkaIntegrationFlow(KafkaTemplate<Object, Object> kafkaTemplate,
+			ObjectMapper objectMapper, @Value("file://${user.home}/Desktop/inbound") File inboundDirectory) {
+		var files = Files //
+				.inboundAdapter(inboundDirectory) //
+				.autoCreateDirectory(true);
+		var kafka = Kafka.outboundChannelAdapter(kafkaTemplate).topic(NOTIFICATIONS).get();
+		return IntegrationFlow.from(files, spca -> spca.poller(pm -> pm.fixedRate(10_000)))
+				.transform(new FileToStringTransformer())
+				.transform((GenericTransformer<String, Greeting>) source -> Json.read(objectMapper, Greeting.class,
+						source))
+				.handle((GenericHandler<Greeting>) (payload, headers) -> {
+					log.info("new file's contents: " + payload);
+					return payload;
+				}).handle(kafka).get();
 	}
 
 	@Bean
@@ -105,6 +122,20 @@ class SpringIntegrationKafkaConfiguration {
 					return null;
 				}) // l
 				.get();
+	}
+
+}
+
+abstract class Json {
+
+	@SneakyThrows
+	public static <T> T read(ObjectMapper objectMapper, Class<T> tClass, String json) {
+		return objectMapper.readValue(json, tClass);
+	}
+
+	@SneakyThrows
+	public static String write(ObjectMapper mapper, Object obj) {
+		return mapper.writeValueAsString(obj);
 	}
 
 }
