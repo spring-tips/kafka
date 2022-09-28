@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.dsl.IntegrationFlow;
+import org.springframework.integration.file.FileHeaders;
 import org.springframework.integration.file.dsl.Files;
 import org.springframework.integration.file.transformer.FileToStringTransformer;
 import org.springframework.integration.handler.GenericHandler;
@@ -22,12 +23,14 @@ import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.listener.ContainerProperties;
+import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 
 import java.io.File;
 import java.util.Map;
+import java.util.Objects;
 
 import static bootiful.SpringKafkaApplication.GREETINGS;
 import static bootiful.SpringKafkaApplication.NOTIFICATIONS;
@@ -50,13 +53,16 @@ public class SpringKafkaApplication {
 class SpringKafkaConfiguration {
 
 	@KafkaListener(id = GREETINGS, topics = GREETINGS)
-	public void listen(
-			@Header(KafkaHeaders.OFFSET) int offset, //
+	public void listen(@Header(KafkaHeaders.OFFSET) int offset, //
 			@Header(KafkaHeaders.RECEIVED_PARTITION) int part, //
+			Acknowledgment acknowledgment, // optional, but if you use this then you also
+											// need to specify the spring boot property
 			@Payload Greeting in //
 	) {
 		var message = Map.of("greeting", in, "partition", part, "offset", offset);
 		log.info(message.toString());
+		log.info("manually acknowledging the request");
+		acknowledgment.acknowledge();
 	}
 
 	@Bean
@@ -84,11 +90,6 @@ record Greeting(String message) {
 class SpringIntegrationKafkaConfiguration {
 
 	@Bean
-	ApplicationListener<ApplicationReadyEvent> notificationsRunner(KafkaTemplate<Object, Object> template) {
-		return event -> template.send(NOTIFICATIONS, new Greeting("This is a notification, mang!"));
-	}
-
-	@Bean
 	ContainerProperties containerProperties() {
 		var cp = new ContainerProperties(NOTIFICATIONS);
 		cp.setGroupId(NOTIFICATIONS + "-group");
@@ -100,17 +101,16 @@ class SpringIntegrationKafkaConfiguration {
 			ObjectMapper objectMapper, @Value("file://${user.home}/Desktop/inbound") File inboundDirectory) {
 		var files = Files //
 				.inboundAdapter(inboundDirectory) //
-				.useWatchService(true)
+				.useWatchService(true) //
 				.autoCreateDirectory(true);
 		var kafka = Kafka.outboundChannelAdapter(kafkaTemplate).topic(NOTIFICATIONS).get();
-		return IntegrationFlow.from(files, spca -> spca.poller(pm -> pm.fixedRate(1_000)))
-				.transform(new FileToStringTransformer())
+		return IntegrationFlow //
+				.from(files, spca -> spca.poller(pm -> pm.fixedRate(1_000)))//
+				.transform(new FileToStringTransformer()) //
 				.transform((GenericTransformer<String, Greeting>) source -> Json.read(objectMapper, Greeting.class,
-						source))
-				.handle((GenericHandler<Greeting>) (payload, headers) -> {
-					log.info("new file's contents: " + payload);
-					return payload;
-				}).handle(kafka).get();
+						source)) //
+				.handle(kafka) //
+				.get();
 	}
 
 	@Bean
@@ -122,7 +122,9 @@ class SpringIntegrationKafkaConfiguration {
 		return IntegrationFlow.from(inboundKafka) //
 				.handle((GenericHandler<Greeting>) (payload, headers) -> {
 					var joinedKeys = String.join(",", headers.keySet());
-					log.info("new greeting in the integration flow: " + payload + " with keys " + joinedKeys);
+					var map = Map.of("topic", NOTIFICATIONS, "keys", joinedKeys, "payload", payload, "file name",
+							Objects.requireNonNull(headers.get(FileHeaders.FILENAME)));
+					log.info(map.toString());
 					return null;
 				}) // l
 				.get();
@@ -133,13 +135,13 @@ class SpringIntegrationKafkaConfiguration {
 abstract class Json {
 
 	@SneakyThrows
-	public static <T> T read(ObjectMapper objectMapper, Class<T> tClass, String json) {
-		return objectMapper.readValue(json, tClass);
+	public static <T> T read(ObjectMapper objectMapper, Class<T> clazz, String json) {
+		return objectMapper.readValue(json, clazz);
 	}
 
 	@SneakyThrows
-	public static String write(ObjectMapper mapper, Object obj) {
-		return mapper.writeValueAsString(obj);
+	public static String write(ObjectMapper objectMapper, Object object) {
+		return objectMapper.writeValueAsString(object);
 	}
 
 }

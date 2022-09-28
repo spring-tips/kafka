@@ -1,0 +1,4044 @@
+[
+  {
+    "name": "org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "platformTransactionManagerCustomizers",
+        "parameterTypes": [
+          "org.springframework.beans.factory.ObjectProvider"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "stringHttpMessageConverter",
+        "parameterTypes": [
+          "org.springframework.core.env.Environment"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.kafka.support.ProducerListener",
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.condition.OnWebApplicationCondition",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.jdbc.DataSourceBeanCreationFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration$IntegrationConfiguration",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "defaultPollerMetadata",
+        "parameterTypes": [
+          "org.springframework.boot.autoconfigure.integration.IntegrationProperties"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "com.fasterxml.jackson.annotation.JsonAutoDetect$Visibility",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "java.lang.String",
+          "int"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "bootiful.SpringKafkaApplication$$SpringCGLIB$$0",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "allDeclaredFields": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.info.ProjectInfoProperties$Build",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setEncoding",
+        "parameterTypes": [
+          "java.nio.charset.Charset"
+        ]
+      },
+      {
+        "name": "getEncoding",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setLocation",
+        "parameterTypes": [
+          "org.springframework.core.io.Resource"
+        ]
+      },
+      {
+        "name": "getLocation",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.integration.config.ConsumerEndpointFactoryBean",
+    "methods": [
+      {
+        "name": "setHandler",
+        "parameterTypes": [
+          "java.lang.Object"
+        ]
+      },
+      {
+        "name": "setInputChannelName",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      }
+    ],
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.integration.routingslip.ExpressionEvaluatingRoutingSlipRouteStrategy$RequestAndReply",
+    "allPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.context.LifecycleProperties",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setTimeoutPerShutdownPhase",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "getTimeoutPerShutdownPhase",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.apache.kafka.clients.consumer.RoundRobinAssignor",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.clients.consumer.CooperativeStickyAssignor",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaProperties$Ssl",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setTrustStoreType",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getTrustStorePassword",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getKeyStoreCertificateChain",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getKeyStoreType",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getKeyStorePassword",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setKeyStoreLocation",
+        "parameterTypes": [
+          "org.springframework.core.io.Resource"
+        ]
+      },
+      {
+        "name": "getKeyStoreKey",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setKeyStoreCertificateChain",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getTrustStoreType",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getTrustStoreLocation",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setKeyStoreKey",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setTrustStoreCertificates",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setTrustStorePassword",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getTrustStoreCertificates",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setKeyStorePassword",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setKeyStoreType",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getKeyPassword",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setProtocol",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getKeyStoreLocation",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setTrustStoreLocation",
+        "parameterTypes": [
+          "org.springframework.core.io.Resource"
+        ]
+      },
+      {
+        "name": "getProtocol",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setKeyPassword",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.r2dbc.NoConnectionFactoryBeanFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.context.config.ConfigTreeConfigDataLocationResolver",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.utils.ImplicitLinkedHashCollection$Element",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.springframework.integration.support.DefaultMessageBuilderFactory",
+    "methods": [
+      {
+        "name": "setReadOnlyHeaders",
+        "parameterTypes": [
+          "java.lang.String[]"
+        ]
+      }
+    ],
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializerDatabaseInitializerDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.r2dbc.ConnectionFactoryBeanCreationFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "integrationGlobalProperties",
+        "parameterTypes": [
+          "org.springframework.boot.autoconfigure.integration.IntegrationProperties"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.context.config.DelegatingApplicationContextInitializer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.analyzer.BindFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.apache.kafka.common.message.CreateTopicsRequestData$CreatableTopic",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.liquibase.LiquibaseDatabaseInitializerDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.config.IntegrationManagementConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "managementConfigurer",
+        "parameterTypes": [
+          "org.springframework.beans.factory.ObjectProvider",
+          "org.springframework.beans.factory.ObjectProvider"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "java.util.function.Supplier",
+    "allPublicMethods": true
+  },
+  {
+    "name": "org.springframework.kafka.core.DefaultKafkaProducerFactory",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.springframework.integration.config.IntegrationEvaluationContextFactoryBean",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.context.properties.IncompatibleConfigurationFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.IntegerSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializerDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaProperties$Retry$Topic",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getMultiplier",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setMultiplier",
+        "parameterTypes": [
+          "double"
+        ]
+      },
+      {
+        "name": "isRandomBackOff",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setRandomBackOff",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "getDelay",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setDelay",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "getAttempts",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setEnabled",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "isEnabled",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setMaxDelay",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "getMaxDelay",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setAttempts",
+        "parameterTypes": [
+          "int"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.kafka.support.serializer.JsonSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.protocol.Message",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.springframework.kafka.support.serializer.DelegatingByTopicDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "com.fasterxml.jackson.databind.ser.std.StdJdkSerializers$AtomicBooleanSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.FailureAnalyzers",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.clients.producer.RoundRobinPartitioner",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.aop.framework.ProxyConfig",
+    "methods": [
+      {
+        "name": "setProxyTargetClass",
+        "parameterTypes": [
+          "boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContextFactory",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.Serdes$ByteArraySerde",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.http.client.AbstractClientHttpRequestFactoryWrapper",
+    "fields": [
+      {
+        "name": "requestFactory"
+      }
+    ]
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.ByteBufferSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationProperties$Management",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "isDefaultLoggingEnabled",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setDefaultLoggingEnabled",
+        "parameterTypes": [
+          "boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.availability.ApplicationAvailabilityAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "applicationAvailability",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.SharedMetadataReaderFactoryContextInitializer$SharedMetadataReaderFactoryBean",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "standardJacksonObjectMapperBuilderCustomizer",
+        "parameterTypes": [
+          "org.springframework.context.ApplicationContext",
+          "org.springframework.boot.autoconfigure.jackson.JacksonProperties"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.jooq.NoDslContextBeanFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.data.redis.RedisUrlSyntaxFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.session.JdbcIndexedSessionRepositoryDependsOnDatabaseInitializationDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "com.fasterxml.jackson.databind.ser.std.FileSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaProperties",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getProducer",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getSecurity",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getStreams",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getJaas",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getAdmin",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getRetry",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getSsl",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getBootstrapServers",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setClientId",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getClientId",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getConsumer",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getListener",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setBootstrapServers",
+        "parameterTypes": [
+          "java.util.List"
+        ]
+      },
+      {
+        "name": "getProperties",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getTemplate",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.task.TaskSchedulingProperties$Pool",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setSize",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "getSize",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "com.fasterxml.jackson.databind.ser.std.StdJdkSerializers$AtomicLongSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.channel.NullChannel",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.integration.config.IntegrationConfigurationInitializer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.core.KafkaOperations",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.springframework.integration.handler.GenericHandler",
+    "allPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.analyzer.BeanNotOfRequiredTypeFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "ch.qos.logback.classic.LoggerContext"
+  },
+  {
+    "name": "org.springframework.kafka.annotation.KafkaBootstrapConfiguration",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.core.ConsumerFactory",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.springframework.integration.config.GlobalChannelInterceptorInitializer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.AutoConfigurationPackages$BasePackages",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "java.lang.String[]"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.BackgroundPreinitializer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "org.springframework.boot.autoconfigure.kafka.KafkaProperties"
+        ]
+      },
+      {
+        "name": "kafkaAdmin",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "kafkaProducerFactory",
+        "parameterTypes": [
+          "org.springframework.beans.factory.ObjectProvider"
+        ]
+      },
+      {
+        "name": "kafkaConsumerFactory",
+        "parameterTypes": [
+          "org.springframework.beans.factory.ObjectProvider"
+        ]
+      },
+      {
+        "name": "kafkaProducerListener",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "kafkaTemplate",
+        "parameterTypes": [
+          "org.springframework.kafka.core.ProducerFactory",
+          "org.springframework.kafka.support.ProducerListener",
+          "org.springframework.beans.factory.ObjectProvider"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.http.codec.support.DefaultClientCodecConfigurer",
+    "condition": {
+      "typeReachable": "org.springframework.http.codec.CodecConfigurerFactory"
+    },
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaAnnotationDrivenConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "org.springframework.boot.autoconfigure.kafka.KafkaProperties",
+          "org.springframework.beans.factory.ObjectProvider",
+          "org.springframework.beans.factory.ObjectProvider",
+          "org.springframework.beans.factory.ObjectProvider",
+          "org.springframework.beans.factory.ObjectProvider",
+          "org.springframework.beans.factory.ObjectProvider",
+          "org.springframework.beans.factory.ObjectProvider",
+          "org.springframework.beans.factory.ObjectProvider",
+          "org.springframework.beans.factory.ObjectProvider",
+          "org.springframework.beans.factory.ObjectProvider"
+        ]
+      },
+      {
+        "name": "kafkaListenerContainerFactoryConfigurer",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "kafkaListenerContainerFactory",
+        "parameterTypes": [
+          "org.springframework.boot.autoconfigure.kafka.ConcurrentKafkaListenerContainerFactoryConfigurer",
+          "org.springframework.beans.factory.ObjectProvider"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.mustache.MustacheTemplateAvailabilityProvider",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.support.SmartLifecycleRoleController",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaProperties$Producer",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getBufferMemory",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setBatchSize",
+        "parameterTypes": [
+          "org.springframework.util.unit.DataSize"
+        ]
+      },
+      {
+        "name": "setValueSerializer",
+        "parameterTypes": [
+          "java.lang.Class"
+        ]
+      },
+      {
+        "name": "setKeySerializer",
+        "parameterTypes": [
+          "java.lang.Class"
+        ]
+      },
+      {
+        "name": "getRetries",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setBootstrapServers",
+        "parameterTypes": [
+          "java.util.List"
+        ]
+      },
+      {
+        "name": "getTransactionIdPrefix",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setRetries",
+        "parameterTypes": [
+          "java.lang.Integer"
+        ]
+      },
+      {
+        "name": "getClientId",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getCompressionType",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setAcks",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setCompressionType",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getBatchSize",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getValueSerializer",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getAcks",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getProperties",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setBufferMemory",
+        "parameterTypes": [
+          "org.springframework.util.unit.DataSize"
+        ]
+      },
+      {
+        "name": "getKeySerializer",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setClientId",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getBootstrapServers",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setTransactionIdPrefix",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.orm.jpa.JpaDependsOnDatabaseInitializationDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.json.JsonPathUtils",
+    "condition": {
+      "typeReachable": "com.jayway.jsonpath.JsonPath"
+    },
+    "allPublicMethods": true
+  },
+  {
+    "name": "org.springframework.integration.support.converter.ConfigurableCompositeMessageConverter",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.kafka.config.KafkaListenerEndpointRegistry",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true,
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.freemarker.FreeMarkerTemplateAvailabilityProvider",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.env.EnvironmentPostProcessorApplicationListener",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.config.GlobalChannelInterceptorProcessor",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.logging.logback.ColorConverter",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.ByteBufferDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.support.serializer.DelegatingSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.LongSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.env.PropertySourceLoader",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.Serdes$LongSerde",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.support.serializer.ErrorHandlingDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.FailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.ClearCachesApplicationListener",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.config.KafkaListenerContainerFactory",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "org.springframework.boot.autoconfigure.info.ProjectInfoProperties"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.condition.OnBeanCondition",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationProperties$Poller",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setReceiveTimeout",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "setCron",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setFixedRate",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "getReceiveTimeout",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getInitialDelay",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getFixedDelay",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getFixedRate",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setFixedDelay",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "setMaxMessagesPerPoll",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "getCron",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getMaxMessagesPerPoll",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setInitialDelay",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.context.config.ConfigDataLocationResolver",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.Serdes$StringSerde",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.support.serializer.DelegatingDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "bootiful.SpringKafkaConfiguration",
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true,
+    "methods": [
+      {
+        "name": "listen",
+        "parameterTypes": [
+          "int",
+          "int",
+          "bootiful.Greeting"
+        ]
+      }
+    ],
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "notifications",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "greetings",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "greetingsRunner",
+        "parameterTypes": [
+          "org.springframework.kafka.core.KafkaTemplate"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.logging.log4j2.Log4J2LoggingSystem$Factory",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "applicationTaskExecutor",
+        "parameterTypes": [
+          "org.springframework.boot.task.TaskExecutorBuilder"
+        ]
+      },
+      {
+        "name": "taskExecutorBuilder",
+        "parameterTypes": [
+          "org.springframework.boot.autoconfigure.task.TaskExecutionProperties",
+          "org.springframework.beans.factory.ObjectProvider",
+          "org.springframework.beans.factory.ObjectProvider"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.task.TaskExecutionProperties$Pool",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setQueueCapacity",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "isAllowCoreThreadTimeout",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getMaxSize",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getCoreSize",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setMaxSize",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "setCoreSize",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "getQueueCapacity",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setKeepAlive",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "setAllowCoreThreadTimeout",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "getKeepAlive",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.Serdes$BytesSerde",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "jacksonObjectMapperBuilder",
+        "parameterTypes": [
+          "org.springframework.context.ApplicationContext",
+          "java.util.List"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.integration.config.IdGeneratorConfigurer",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAvailabilityProvider",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.dsl.context.StandardIntegrationFlowContext",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.kafka.core.ProducerFactory",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration$IntegrationComponentScanConfiguration",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaProperties$Template",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setDefaultTopic",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setTransactionIdPrefix",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getTransactionIdPrefix",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getDefaultTopic",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.slf4j.bridge.SLF4JBridgeHandler"
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationProperties$RSocket$Client",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getPort",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setPort",
+        "parameterTypes": [
+          "java.lang.Integer"
+        ]
+      },
+      {
+        "name": "getUri",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getHost",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setUri",
+        "parameterTypes": [
+          "java.net.URI"
+        ]
+      },
+      {
+        "name": "setHost",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "java.util.function.Function",
+    "allPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.jackson.JacksonProperties$ConstructorDetectorStrategy",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "java.lang.String",
+          "int"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.logging.LoggingSystemFactory",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.task.TaskExecutionProperties$Shutdown",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "isAwaitTermination",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getAwaitTerminationPeriod",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setAwaitTerminationPeriod",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "setAwaitTermination",
+        "parameterTypes": [
+          "boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "bootiful.SpringKafkaConfiguration$$SpringCGLIB$$0",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "allDeclaredFields": true
+  },
+  {
+    "name": "com.fasterxml.jackson.datatype.jsr310.JavaTimeModule",
+    "condition": {
+      "typeReachable": "org.springframework.http.converter.json.Jackson2ObjectMapperBuilder"
+    },
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.http.codec.support.DefaultServerCodecConfigurer",
+    "condition": {
+      "typeReachable": "org.springframework.http.codec.CodecConfigurerFactory"
+    },
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.r2dbc.init.R2dbcScriptDatabaseInitializerDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.clients.producer.internals.DefaultPartitioner",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.logging.logback.LogbackLoggingSystem$Factory",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationPropertiesEnvironmentPostProcessor",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.analyzer.PatternParseFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.web.context.ServerPortInfoApplicationContextInitializer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.annotation.KafkaListenerAnnotationBeanPostProcessor",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true,
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaProperties$Security",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getProtocol",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setProtocol",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.condition.ConditionEvaluationReportAutoConfigurationImportListener",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.analyzer.PortInUseFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.SpringApplicationRunListener",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.core.KafkaTemplate",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationProperties$Channel",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setAutoCreate",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "getMaxBroadcastSubscribers",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setMaxBroadcastSubscribers",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "setMaxUnicastSubscribers",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "isAutoCreate",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getMaxUnicastSubscribers",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.integration.context.IntegrationContextUtils",
+    "allPublicMethods": true
+  },
+  {
+    "name": "org.springframework.beans.factory.config.BeanExpressionContext",
+    "allPublicMethods": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.FloatDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.channel.DefaultHeaderChannelRegistry",
+    "methods": [
+      {
+        "name": "start",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "isRunning",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "stop",
+        "parameterTypes": [ ]
+      }
+    ],
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "scheduledBeanLazyInitializationExcludeFilter",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "taskSchedulerBuilder",
+        "parameterTypes": [
+          "org.springframework.boot.autoconfigure.task.TaskSchedulingProperties",
+          "org.springframework.beans.factory.ObjectProvider"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationProperties$RSocket",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getServer",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getClient",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.diagnostics.analyzer.NoSuchBeanDefinitionFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.env.YamlPropertySourceLoader",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaAnnotationDrivenConfiguration$EnableKafkaConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.jooq.JooqDependsOnDatabaseInitializationDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.gateway.MethodArgsHolder",
+    "allPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.orm.jpa.JpaDatabaseInitializerDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.config.IntegrationConverterInitializer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.task.TaskSchedulingProperties",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getShutdown",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setThreadNamePrefix",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getThreadNamePrefix",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getPool",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.context.ApplicationContextInitializer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.sql.init.dependency.AnnotationDependsOnDatabaseInitializationDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.aop.AopAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.AutoConfigurationImportListener",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.analyzer.BindValidationFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "defaultLifecycleProcessor",
+        "parameterTypes": [
+          "org.springframework.boot.autoconfigure.context.LifecycleProperties"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaProperties$Consumer",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getMaxPollRecords",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getProperties",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getFetchMaxWait",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getFetchMinSize",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setValueDeserializer",
+        "parameterTypes": [
+          "java.lang.Class"
+        ]
+      },
+      {
+        "name": "getBootstrapServers",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setHeartbeatInterval",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "getGroupId",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getKeyDeserializer",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getValueDeserializer",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setFetchMaxWait",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "setBootstrapServers",
+        "parameterTypes": [
+          "java.util.List"
+        ]
+      },
+      {
+        "name": "getAutoOffsetReset",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setMaxPollRecords",
+        "parameterTypes": [
+          "java.lang.Integer"
+        ]
+      },
+      {
+        "name": "setFetchMinSize",
+        "parameterTypes": [
+          "org.springframework.util.unit.DataSize"
+        ]
+      },
+      {
+        "name": "setClientId",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getEnableAutoCommit",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setIsolationLevel",
+        "parameterTypes": [
+          "org.springframework.boot.autoconfigure.kafka.KafkaProperties$IsolationLevel"
+        ]
+      },
+      {
+        "name": "getHeartbeatInterval",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setKeyDeserializer",
+        "parameterTypes": [
+          "java.lang.Class"
+        ]
+      },
+      {
+        "name": "getClientId",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getAutoCommitInterval",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getIsolationLevel",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setAutoOffsetReset",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setAutoCommitInterval",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "setGroupId",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setEnableAutoCommit",
+        "parameterTypes": [
+          "java.lang.Boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.SharedMetadataReaderFactoryContextInitializer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.builder.ParentContextCloserApplicationListener",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.utils.AppInfoParser$AppInfo",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.batch.JobRepositoryDependsOnDatabaseInitializationDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.SpringApplication",
+    "methods": [
+      {
+        "name": "setSources",
+        "parameterTypes": [
+          "java.util.Set"
+        ]
+      },
+      {
+        "name": "getListeners",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setEnvironmentPrefix",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setRegisterShutdownHook",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "setAllowCircularReferences",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "setBeanNameGenerator",
+        "parameterTypes": [
+          "org.springframework.beans.factory.support.BeanNameGenerator"
+        ]
+      },
+      {
+        "name": "setAddCommandLineProperties",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "setLogStartupInfo",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "getEnvironmentPrefix",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getSources",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getApplicationStartup",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setBannerMode",
+        "parameterTypes": [
+          "org.springframework.boot.Banner$Mode"
+        ]
+      },
+      {
+        "name": "getInitializers",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setMainApplicationClass",
+        "parameterTypes": [
+          "java.lang.Class"
+        ]
+      },
+      {
+        "name": "getAdditionalProfiles",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setApplicationContextFactory",
+        "parameterTypes": [
+          "org.springframework.boot.ApplicationContextFactory"
+        ]
+      },
+      {
+        "name": "setWebApplicationType",
+        "parameterTypes": [
+          "org.springframework.boot.WebApplicationType"
+        ]
+      },
+      {
+        "name": "getMainApplicationClass",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setLazyInitialization",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "setResourceLoader",
+        "parameterTypes": [
+          "org.springframework.core.io.ResourceLoader"
+        ]
+      },
+      {
+        "name": "setBanner",
+        "parameterTypes": [
+          "org.springframework.boot.Banner"
+        ]
+      },
+      {
+        "name": "setHeadless",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "setEnvironment",
+        "parameterTypes": [
+          "org.springframework.core.env.ConfigurableEnvironment"
+        ]
+      },
+      {
+        "name": "setDefaultProperties",
+        "parameterTypes": [
+          "java.util.Properties"
+        ]
+      },
+      {
+        "name": "getWebApplicationType",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setAddConversionService",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "setApplicationStartup",
+        "parameterTypes": [
+          "org.springframework.core.metrics.ApplicationStartup"
+        ]
+      },
+      {
+        "name": "getAllSources",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getResourceLoader",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setAllowBeanDefinitionOverriding",
+        "parameterTypes": [
+          "boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.kafka.listener.ContainerProperties",
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.StringDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.analyzer.BeanDefinitionOverrideFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.config.annotation.MessagingAnnotationPostProcessor",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.analyzer.UnboundConfigurationPropertyFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.Serdes$IntegerSerde",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.Serdes$ByteBufferSerde",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.http.client.SimpleClientHttpRequestFactory",
+    "condition": {
+      "typeReachable": "org.springframework.http.client.SimpleClientHttpRequestFactory"
+    },
+    "methods": [
+      {
+        "name": "setConnectTimeout",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "setReadTimeout",
+        "parameterTypes": [
+          "int"
+        ]
+      },
+      {
+        "name": "setBufferRequestBody",
+        "parameterTypes": [
+          "boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "jacksonObjectMapper",
+        "parameterTypes": [
+          "org.springframework.http.converter.json.Jackson2ObjectMapperBuilder"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.kafka.support.serializer.DelegatingByTypeSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.context.event.EventListenerMethodProcessor",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.rsocket.context.RSocketPortInfoApplicationContextInitializer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaProperties$Streams",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "isAutoStartup",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setAutoStartup",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "setClientId",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getBootstrapServers",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setBootstrapServers",
+        "parameterTypes": [
+          "java.util.List"
+        ]
+      },
+      {
+        "name": "getStateDir",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setReplicationFactor",
+        "parameterTypes": [
+          "java.lang.Integer"
+        ]
+      },
+      {
+        "name": "setStateDir",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getReplicationFactor",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getProperties",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getClientId",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getApplicationId",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getCacheMaxSizeBuffering",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setApplicationId",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setCacheMaxSizeBuffering",
+        "parameterTypes": [
+          "org.springframework.util.unit.DataSize"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.transaction.TransactionProperties",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setDefaultTimeout",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "getDefaultTimeout",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getRollbackOnCommitFailure",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setRollbackOnCommitFailure",
+        "parameterTypes": [
+          "java.lang.Boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.ListSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "bootiful.SpringKafkaApplication__ApplicationContextInitializer",
+    "condition": {
+      "typeReachable": "bootiful.SpringKafkaApplication"
+    },
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.integration.dsl.context.IntegrationFlowBeanPostProcessor",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.integration.dsl.BaseIntegrationFlowDefinition$ReplyProducerCleaner",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.context.event.DefaultEventListenerFactory",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.analyzer.NoUniqueBeanDefinitionFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "bootiful.SpringIntegrationKafkaConfiguration$$SpringCGLIB$$0",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "allDeclaredFields": true
+  },
+  {
+    "name": "org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.config.IdempotentReceiverAutoProxyCreatorInitializer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.web.client.RestTemplateAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "restTemplateBuilder",
+        "parameterTypes": [
+          "org.springframework.boot.autoconfigure.web.client.RestTemplateBuilderConfigurer"
+        ]
+      },
+      {
+        "name": "restTemplateBuilderConfigurer",
+        "parameterTypes": [
+          "org.springframework.beans.factory.ObjectProvider",
+          "org.springframework.beans.factory.ObjectProvider",
+          "org.springframework.beans.factory.ObjectProvider"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.context.properties.NotConstructorBoundInjectionFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.context.config.ConfigDataLoader",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.handler.AbstractReplyProducingMessageHandler$RequestHandler",
+    "allPublicMethods": true
+  },
+  {
+    "name": "org.springframework.integration.support.management.ManageableLifecycle",
+    "methods": [
+      {
+        "name": "isRunning",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "start",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "stop",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationProperties",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getError",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getJdbc",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getManagement",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getChannel",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getEndpoint",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getPoller",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getRsocket",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.integration.config.MessageHandlerMethodFactoryCreatingFactoryBean",
+    "methods": [
+      {
+        "name": "setArgumentResolverMessageConverter",
+        "parameterTypes": [
+          "org.springframework.messaging.converter.MessageConverter"
+        ]
+      }
+    ],
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.r2dbc.MultipleConnectionPoolConfigurationsFailureAnalzyer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.support.serializer.JsonDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.task.TaskSchedulingProperties$Shutdown",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setAwaitTerminationPeriod",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "isAwaitTermination",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getAwaitTerminationPeriod",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setAwaitTermination",
+        "parameterTypes": [
+          "boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.Serdes$UUIDSerde",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.support.serializer.ParseStringDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.handler.LoggingHandler",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "org.springframework.integration.handler.LoggingHandler$Level"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "com.fasterxml.jackson.databind.ser.std.ClassSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.Serdes$FloatSerde",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.transformer.GenericTransformer",
+    "allPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.context.config.ConfigTreeConfigDataLoader",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.Serdes$DoubleSerde",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.flyway.FlywayDatabaseInitializerDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.FailureAnalysisReporter",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.AutoConfigurationImportFilter",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.core.KafkaAdmin",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.analyzer.BeanCurrentlyInCreationFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.clients.producer.UniformStickyPartitioner",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "bootiful.SpringIntegrationKafkaConfiguration",
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true,
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "inboundKafkaIntegrationFlow",
+        "parameterTypes": [
+          "org.springframework.kafka.listener.ContainerProperties",
+          "org.springframework.kafka.core.ConsumerFactory"
+        ]
+      },
+      {
+        "name": "inboundFileOutboundKafkaIntegrationFlow",
+        "parameterTypes": [
+          "org.springframework.kafka.core.KafkaTemplate",
+          "com.fasterxml.jackson.databind.ObjectMapper",
+          "java.io.File"
+        ]
+      },
+      {
+        "name": "containerProperties",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.cloud.CloudFoundryVcapEnvironmentPostProcessor",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.dsl.context.DslIntegrationConfigurationInitializer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "com.fasterxml.jackson.datatype.jdk8.Jdk8Module",
+    "condition": {
+      "typeReachable": "org.springframework.http.converter.json.Jackson2ObjectMapperBuilder"
+    },
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.DoubleSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.core.DefaultKafkaConsumerFactory",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.springframework.beans.BeanInfoFactory",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.logging.java.JavaLoggingSystem$Factory",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.support.channel.BeanFactoryChannelResolver",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.dao.PersistenceExceptionTranslationAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "persistenceExceptionTranslationPostProcessor",
+        "parameterTypes": [
+          "org.springframework.core.env.Environment"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.analyzer.InvalidConfigurationPropertyValueFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.ByteArraySerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.clients.admin.NewTopic",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.info.ProjectInfoProperties",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getGit",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getBuild",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "bootiful.SpringKafkaApplication",
+    "allDeclaredMethods": true,
+    "queryAllDeclaredConstructors": true,
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.analyzer.MutuallyExclusiveConfigurationPropertiesFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "ch.qos.logback.core.rolling.helper.DateTokenConverter",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "bootiful.Greeting",
+    "allDeclaredConstructors": true,
+    "methods": [
+      {
+        "name": "message",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.BytesDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.env.SpringApplicationJsonEnvironmentPostProcessor",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "java.util.zip.CRC32C",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.support.serializer.ToStringSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationProperties$RSocket$Server",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "isMessageMappingEnabled",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setMessageMappingEnabled",
+        "parameterTypes": [
+          "boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.template.TemplateAvailabilityProvider",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationProperties$Jdbc",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getSchema",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getPlatform",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setInitializeSchema",
+        "parameterTypes": [
+          "org.springframework.boot.sql.init.DatabaseInitializationMode"
+        ]
+      },
+      {
+        "name": "setSchema",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getInitializeSchema",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setPlatform",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.env.PropertiesPropertySourceLoader",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.ApplicationContextFactory",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.context.ConfigurationWarningsApplicationContextInitializer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.channel.PublishSubscribeChannel",
+    "methods": [
+      {
+        "name": "setIgnoreFailures",
+        "parameterTypes": [
+          "boolean"
+        ]
+      }
+    ],
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.integration.channel.MessagePublishingErrorHandler",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.web.servlet.server.Encoding",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setCharset",
+        "parameterTypes": [
+          "java.nio.charset.Charset"
+        ]
+      },
+      {
+        "name": "isForceResponse",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setForceRequest",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "isForceRequest",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getMapping",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "isForce",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getCharset",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setMapping",
+        "parameterTypes": [
+          "java.util.Map"
+        ]
+      },
+      {
+        "name": "setForceResponse",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "setForce",
+        "parameterTypes": [
+          "boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.StringSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.FloatSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "messageConverters",
+        "parameterTypes": [
+          "org.springframework.beans.factory.ObjectProvider"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.jackson.JacksonProperties",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getParser",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getLocale",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getTimeZone",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setLocale",
+        "parameterTypes": [
+          "java.util.Locale"
+        ]
+      },
+      {
+        "name": "setTimeZone",
+        "parameterTypes": [
+          "java.util.TimeZone"
+        ]
+      },
+      {
+        "name": "getDeserialization",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getConstructorDetector",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setDefaultPropertyInclusion",
+        "parameterTypes": [
+          "com.fasterxml.jackson.annotation.JsonInclude$Include"
+        ]
+      },
+      {
+        "name": "getDateFormat",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getSerialization",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getVisibility",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getGenerator",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getPropertyNamingStrategy",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setPropertyNamingStrategy",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setConstructorDetector",
+        "parameterTypes": [
+          "org.springframework.boot.autoconfigure.jackson.JacksonProperties$ConstructorDetectorStrategy"
+        ]
+      },
+      {
+        "name": "getDefaultPropertyInclusion",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getMapper",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setDefaultLeniency",
+        "parameterTypes": [
+          "java.lang.Boolean"
+        ]
+      },
+      {
+        "name": "setDateFormat",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getDefaultLeniency",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.kafka.support.serializer.StringOrBytesSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$ParameterNamesModuleConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "parameterNamesModule",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.ByteArrayDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "ch.qos.logback.classic.pattern.SyslogStartConverter",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "com.fasterxml.jackson.databind.ser.std.TokenBufferSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.web.context.MissingWebServerFactoryBeanFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.beans.ExtendedBeanInfoFactory",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.context.ApplicationListener",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.LongDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.jmx.JmxProperties",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setEnabled",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "setDefaultDomain",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getEnabled",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setServer",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "isUniqueNames",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getDefaultDomain",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getServer",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setUniqueNames",
+        "parameterTypes": [
+          "boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.context.config.ConfigDataNotFoundFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.SpringBootExceptionReporter",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.context.IntegrationProperties",
+    "allPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.info.ProjectInfoProperties$Git",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setLocation",
+        "parameterTypes": [
+          "org.springframework.core.io.Resource"
+        ]
+      },
+      {
+        "name": "setEncoding",
+        "parameterTypes": [
+          "java.nio.charset.Charset"
+        ]
+      },
+      {
+        "name": "getLocation",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getEncoding",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.context.logging.LoggingApplicationListener",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaProperties$Listener",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setConcurrency",
+        "parameterTypes": [
+          "java.lang.Integer"
+        ]
+      },
+      {
+        "name": "getLogContainerConfig",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getIdlePartitionEventInterval",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setIdlePartitionEventInterval",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "setAsyncAcks",
+        "parameterTypes": [
+          "java.lang.Boolean"
+        ]
+      },
+      {
+        "name": "getPollTimeout",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getConcurrency",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getNoPollThreshold",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setType",
+        "parameterTypes": [
+          "org.springframework.boot.autoconfigure.kafka.KafkaProperties$Listener$Type"
+        ]
+      },
+      {
+        "name": "setClientId",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setIdleEventInterval",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "setImmediateStop",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "setAckTime",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "getAckCount",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getIdleBetweenPolls",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getType",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setPollTimeout",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "getClientId",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getAckTime",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setNoPollThreshold",
+        "parameterTypes": [
+          "java.lang.Float"
+        ]
+      },
+      {
+        "name": "setLogContainerConfig",
+        "parameterTypes": [
+          "java.lang.Boolean"
+        ]
+      },
+      {
+        "name": "isImmediateStop",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getIdleEventInterval",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getMonitorInterval",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setMissingTopicsFatal",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "setIdleBetweenPolls",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "getAckMode",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "isMissingTopicsFatal",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setAckCount",
+        "parameterTypes": [
+          "java.lang.Integer"
+        ]
+      },
+      {
+        "name": "setMonitorInterval",
+        "parameterTypes": [
+          "java.time.Duration"
+        ]
+      },
+      {
+        "name": "setAckMode",
+        "parameterTypes": [
+          "org.springframework.kafka.listener.ContainerProperties$AckMode"
+        ]
+      },
+      {
+        "name": "getAsyncAcks",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.IntegerDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.core.KafkaResourceFactory",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.web.servlet.context.ServletWebServerApplicationContextFactory",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.http.JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "mappingJackson2HttpMessageConverter",
+        "parameterTypes": [
+          "com.fasterxml.jackson.databind.ObjectMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "propertySourcesPlaceholderConfigurer",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.analyzer.NoSuchMethodFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationProperties$Endpoint",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "isThrowExceptionOnLateReply",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getNoAutoStartup",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setNoAutoStartup",
+        "parameterTypes": [
+          "java.util.List"
+        ]
+      },
+      {
+        "name": "getReadOnlyHeaders",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setThrowExceptionOnLateReply",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "setReadOnlyHeaders",
+        "parameterTypes": [
+          "java.util.List"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.aop.AopAutoConfiguration$AspectJAutoProxyingConfiguration$CglibAutoProxyConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.kafka.config.AbstractKafkaListenerContainerFactory",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.validation.beanvalidation.MethodValidationExcludeFilter",
+    "queriedMethods": [
+      {
+        "name": "byAnnotation",
+        "parameterTypes": [
+          "java.lang.Class"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.sql.init.dependency.DatabaseInitializerDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.support.converter.DefaultDatatypeChannelMessageConverter",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.context.config.StandardConfigDataLocationResolver",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.config.IntegrationSimpleEvaluationContextFactoryBean",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.web.embedded.tomcat.ConnectorStartFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.aop.AopAutoConfiguration$AspectJAutoProxyingConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.context.FileEncodingApplicationListener",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.Serdes",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.context.event.EventPublishingRunListener",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.context.ContextIdApplicationContextInitializer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "java.lang.String"
+  },
+  {
+    "name": "org.springframework.boot.context.config.AnsiOutputApplicationListener",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.quartz.SchedulerDependsOnDatabaseInitializationDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.env.EnvironmentPostProcessor",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.ListDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.config.CustomConversionServiceFactoryBean",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaProperties$Listener$Type",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "java.lang.String",
+          "int"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.kafka.listener.ConsumerProperties",
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "org.springframework.boot.context.properties.BoundConfigurationProperties",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaProperties$Retry",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getTopic",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration$IntegrationTaskSchedulerConfiguration",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "taskScheduler",
+        "parameterTypes": [
+          "org.springframework.boot.task.TaskSchedulerBuilder"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.thymeleaf.ThymeleafTemplateAvailabilityProvider",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.env.RandomValuePropertySourceEnvironmentPostProcessor",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.jdbc.SpringJdbcDependsOnDatabaseInitializationDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.web.context.ConfigurableWebApplicationContext"
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.DoubleDeserializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "com.fasterxml.jackson.databind.ser.std.StdJdkSerializers$AtomicIntegerSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.condition.OnClassCondition",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.http.JacksonHttpMessageConvertersConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.web.servlet.JspTemplateAvailabilityProvider",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.Serdes$VoidSerde",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.integration.core.GenericSelector",
+    "allPublicMethods": true
+  },
+  {
+    "name": "org.springframework.boot.context.properties.ConfigurationPropertiesBinder",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "org.springframework.context.ApplicationContext"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.sql.init.dependency.DependsOnDatabaseInitializationDetector",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "isContinueOnError",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setMode",
+        "parameterTypes": [
+          "org.springframework.boot.sql.init.DatabaseInitializationMode"
+        ]
+      },
+      {
+        "name": "setDataLocations",
+        "parameterTypes": [
+          "java.util.List"
+        ]
+      },
+      {
+        "name": "getSeparator",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getPassword",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setPlatform",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setUsername",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setSchemaLocations",
+        "parameterTypes": [
+          "java.util.List"
+        ]
+      },
+      {
+        "name": "setEncoding",
+        "parameterTypes": [
+          "java.nio.charset.Charset"
+        ]
+      },
+      {
+        "name": "setPassword",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getEncoding",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setContinueOnError",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "getMode",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getUsername",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getSchemaLocations",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getDataLocations",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setSeparator",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getPlatform",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.apache.kafka.clients.consumer.StickyAssignor",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaProperties$Jaas",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setEnabled",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "setOptions",
+        "parameterTypes": [
+          "java.util.Map"
+        ]
+      },
+      {
+        "name": "getOptions",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getLoginModule",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setLoginModule",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setControlFlag",
+        "parameterTypes": [
+          "org.springframework.kafka.security.jaas.KafkaJaasLoginModuleInitializer$ControlFlag"
+        ]
+      },
+      {
+        "name": "isEnabled",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getControlFlag",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.Serdes$ShortSerde",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.context.config.DelegatingApplicationListener",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.context.properties.ConfigurationPropertiesBinder$Factory",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.r2dbc.MissingR2dbcPoolDependencyFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationProperties$Error",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setRequireSubscribers",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "isRequireSubscribers",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "isIgnoreFailures",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setIgnoreFailures",
+        "parameterTypes": [
+          "boolean"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "jsonMixinModule",
+        "parameterTypes": [
+          "org.springframework.context.ApplicationContext"
+        ]
+      },
+      {
+        "name": "jsonComponentModule",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.apache.kafka.common.serialization.BytesSerializer",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.yaml.snakeyaml.Yaml",
+    "condition": {
+      "typeReachable": "org.springframework.boot.env.YamlPropertySourceLoader"
+    }
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration$IntegrationManagementConfiguration$EnableIntegrationManagementConfiguration",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.kafka.KafkaProperties$Admin",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getProperties",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setFailFast",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "isFailFast",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "isModifyTopicConfigs",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setClientId",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setModifyTopicConfigs",
+        "parameterTypes": [
+          "boolean"
+        ]
+      },
+      {
+        "name": "getClientId",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.integration.config.ConverterRegistrar",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.apache.kafka.clients.consumer.RangeAssignor",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration$IntegrationManagementConfiguration",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.aop.framework.ProxyProcessorSupport",
+    "methods": [
+      {
+        "name": "setOrder",
+        "parameterTypes": [
+          "int"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "ch.qos.logback.core.rolling.helper.IntegerTokenConverter",
+    "allPublicConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.reactor.DebugAgentEnvironmentPostProcessor",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.context.config.StandardConfigDataLoader",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.boot.autoconfigure.task.TaskExecutionProperties",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setThreadNamePrefix",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getThreadNamePrefix",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getShutdown",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getPool",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "org.springframework.boot.diagnostics.analyzer.InvalidConfigurationPropertyNameFailureAnalyzer",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.springframework.kafka.support.LoggingProducerListener",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true,
+    "queryAllPublicMethods": true
+  }
+]
