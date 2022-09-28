@@ -111,8 +111,6 @@ class SpringKafkaConfiguration {
 		return TopicBuilder.name(GREETINGS).partitions(1).replicas(1).build();
 	}
 
-	// this doesn't work because i need to redefine the KafkaTemplate to allow non
-	// transactional use
 	@Bean
 	ApplicationListener<ApplicationReadyEvent> greetingsRunner(KafkaTemplate<Object, Object> template) {
 		return event -> template.send(GREETINGS, new Greeting("Hello, Kafka!"));
@@ -128,24 +126,6 @@ record Greeting(String message) {
 class SpringIntegrationKafkaConfiguration {
 
 	@Bean
-	MessageChannel errorChannel() {
-		return MessageChannels.direct().get();
-	}
-
-	@Bean
-	IntegrationFlow fromErrorChannel(MessageChannel errorChannel) {
-
-		return IntegrationFlow.from(errorChannel).handle(new GenericHandler<Object>() {
-			@Override
-			public Object handle(Object payload, MessageHeaders headers) {
-				log.info("ERROR!");
-				log.info("" + payload);
-				return null;
-			}
-		}).get();
-	}
-
-	@Bean
 	ContainerProperties containerProperties() {
 		var cp = new ContainerProperties(NOTIFICATIONS);
 		cp.setGroupId(NOTIFICATIONS + "-group");
@@ -159,7 +139,10 @@ class SpringIntegrationKafkaConfiguration {
 				.inboundAdapter(inboundDirectory) //
 				.useWatchService(true) //
 				.autoCreateDirectory(true);
-		var kafka = Kafka.outboundChannelAdapter(kafkaTemplate).topic(NOTIFICATIONS).get();
+		var kafka = Kafka //
+				.outboundChannelAdapter(kafkaTemplate) //
+				.topic(NOTIFICATIONS)//
+				.get();
 		return IntegrationFlow //
 				.from(files, spca -> spca.poller(pm -> pm.fixedRate(1_000)))//
 				.transform(new FileToStringTransformer()) //
