@@ -13,11 +13,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.binder.kafka.streams.InteractiveQueryService;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.List;
@@ -49,7 +47,7 @@ public class AnalyticsApplication {
     }
 
     @Bean
-    public Function<KStream<String, PageViewEvent>, KStream<String, Long>> process() {
+      Function<KStream<String, PageViewEvent>, KStream<String, Long>> process() {
         return kStream -> kStream //
                 .filter((key, value) -> value.duration() > 10) //
                 .map((key, value) -> new KeyValue<>(value.page(), "0"))//
@@ -70,7 +68,7 @@ class CountRestController {
 
     private final InteractiveQueryService iqs;
 
-    CountRestController(@Lazy InteractiveQueryService iqs) {
+    CountRestController(  InteractiveQueryService iqs) {
         this.iqs = iqs;
     }
 
