@@ -11,22 +11,18 @@ import org.springframework.test.annotation.DirtiesContext;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static bootiful.SpringKafkaApplication.*;
 import static bootiful.SpringKafkaApplication.GREETINGS;
 import static bootiful.SpringKafkaApplication.NOTIFICATIONS;
 
 @SpringBootTest
 @DirtiesContext
-@EmbeddedKafka(bootstrapServersProperty = "spring.kafka.bootstrap-servers",
-		topics = { GREETINGS, SpringKafkaApplication.NOTIFICATIONS })
+@EmbeddedKafka(bootstrapServersProperty = "spring.kafka.bootstrap-servers", topics = { GREETINGS, NOTIFICATIONS })
 class SpringKafkaApplicationTests {
-
-	private final EmbeddedKafkaBroker broker;
 
 	private final AtomicInteger counter;
 
-	SpringKafkaApplicationTests(@Autowired EmbeddedKafkaBroker broker,
-			@Autowired SpringKafkaConfiguration springKafkaApplication) {
-		this.broker = broker;
+	SpringKafkaApplicationTests(@Autowired SpringKafkaConfiguration springKafkaApplication) {
 		this.counter = springKafkaApplication.counter;
 	}
 
@@ -37,7 +33,7 @@ class SpringKafkaApplicationTests {
 	}
 
 	@Test
-	void topics() {
+	void topics(@Autowired EmbeddedKafkaBroker broker) {
 		for (var topic : List.of(GREETINGS, NOTIFICATIONS)) {
 			Assertions.assertTrue(broker.getTopics().contains(topic));
 		}

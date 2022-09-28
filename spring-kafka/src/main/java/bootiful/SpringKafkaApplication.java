@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.NewTopic;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +13,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.dsl.IntegrationFlow;
+import org.springframework.integration.dsl.MessageChannels;
 import org.springframework.integration.file.FileHeaders;
 import org.springframework.integration.file.dsl.Files;
 import org.springframework.integration.file.transformer.FileToStringTransformer;
@@ -25,20 +27,23 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 
 import java.io.File;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
 
-import static bootiful.SpringKafkaApplication.GREETINGS;
-import static bootiful.SpringKafkaApplication.NOTIFICATIONS;
+import static bootiful.SpringKafkaApplication.*;
 
 @SpringBootApplication
 public class SpringKafkaApplication {
+
+	final static String TX = "tx";
 
 	final static String GREETINGS = "greetings";
 
@@ -46,6 +51,33 @@ public class SpringKafkaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringKafkaApplication.class, args);
+	}
+
+}
+
+@Slf4j
+@Configuration
+class SpringKafkaTransactionalConfiguration {
+
+	final CountDownLatch latch = new CountDownLatch(3);
+
+	final AtomicInteger counter = new AtomicInteger(0);
+
+	@KafkaListener(id = "txid", topics = TX)
+	void listen(String in) {
+		this.counter.incrementAndGet();
+		this.latch.countDown();
+	}
+
+	@Bean
+	InitializingBean transactionalKafkaTemplateInitializingBean(KafkaTemplate<Object, Object> template) {
+		return () -> template.setAllowNonTransactional(true);
+	}
+
+	@Bean
+	NewTopic txTopic() {
+		log.info("new topic " + TX);
+		return new NewTopic(TX, 1, (short) 1);
 	}
 
 }
@@ -79,6 +111,8 @@ class SpringKafkaConfiguration {
 		return TopicBuilder.name(GREETINGS).partitions(1).replicas(1).build();
 	}
 
+	// this doesn't work because i need to redefine the KafkaTemplate to allow non
+	// transactional use
 	@Bean
 	ApplicationListener<ApplicationReadyEvent> greetingsRunner(KafkaTemplate<Object, Object> template) {
 		return event -> template.send(GREETINGS, new Greeting("Hello, Kafka!"));
@@ -92,6 +126,24 @@ record Greeting(String message) {
 @Slf4j
 @Configuration
 class SpringIntegrationKafkaConfiguration {
+
+	@Bean
+	MessageChannel errorChannel() {
+		return MessageChannels.direct().get();
+	}
+
+	@Bean
+	IntegrationFlow fromErrorChannel(MessageChannel errorChannel) {
+
+		return IntegrationFlow.from(errorChannel).handle(new GenericHandler<Object>() {
+			@Override
+			public Object handle(Object payload, MessageHeaders headers) {
+				log.info("ERROR!");
+				log.info("" + payload);
+				return null;
+			}
+		}).get();
+	}
 
 	@Bean
 	ContainerProperties containerProperties() {
