@@ -50,8 +50,11 @@ public class SpringKafkaApplication {
 class SpringKafkaConfiguration {
 
 	@KafkaListener(id = GREETINGS, topics = GREETINGS)
-	public void listen(@Header(KafkaHeaders.OFFSET) int offset, @Header(KafkaHeaders.RECEIVED_PARTITION) int part,
-			@Payload Greeting in) {
+	public void listen(
+			@Header(KafkaHeaders.OFFSET) int offset, //
+			@Header(KafkaHeaders.RECEIVED_PARTITION) int part, //
+			@Payload Greeting in //
+	) {
 		var message = Map.of("greeting", in, "partition", part, "offset", offset);
 		log.info(message.toString());
 	}
