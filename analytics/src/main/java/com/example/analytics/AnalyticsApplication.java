@@ -1,6 +1,5 @@
 package com.example.analytics;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KeyValue;
@@ -15,7 +14,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.binder.kafka.streams.InteractiveQueryService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -48,7 +49,7 @@ public class AnalyticsApplication {
     }
 
     @Bean
-    Function<KStream<String, PageViewEvent>, KStream<String, Long>> process() {
+    public Function<KStream<String, PageViewEvent>, KStream<String, Long>> process() {
         return kStream -> kStream //
                 .filter((key, value) -> value.duration() > 10) //
                 .map((key, value) -> new KeyValue<>(value.page(), "0"))//
@@ -63,7 +64,8 @@ public class AnalyticsApplication {
     }
 }
 
-@RestController
+@Controller
+@ResponseBody
 class CountRestController {
 
     private final InteractiveQueryService iqs;
