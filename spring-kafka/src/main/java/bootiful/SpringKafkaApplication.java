@@ -31,6 +31,8 @@ import org.springframework.messaging.handler.annotation.Payload;
 import java.io.File;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static bootiful.SpringKafkaApplication.GREETINGS;
 import static bootiful.SpringKafkaApplication.NOTIFICATIONS;
@@ -38,13 +40,13 @@ import static bootiful.SpringKafkaApplication.NOTIFICATIONS;
 @SpringBootApplication
 public class SpringKafkaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringKafkaApplication.class, args);
-	}
-
 	final static String GREETINGS = "greetings";
 
 	final static String NOTIFICATIONS = "notifications";
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringKafkaApplication.class, args);
+	}
 
 }
 
@@ -52,17 +54,19 @@ public class SpringKafkaApplication {
 @Configuration
 class SpringKafkaConfiguration {
 
+	final AtomicInteger counter = new AtomicInteger();
+
 	@KafkaListener(id = GREETINGS, topics = GREETINGS)
 	public void listen(@Header(KafkaHeaders.OFFSET) int offset, //
 			@Header(KafkaHeaders.RECEIVED_PARTITION) int part, //
-			Acknowledgment acknowledgment, // optional, but if you use this then you also
-											// need to specify the spring boot property
+			Acknowledgment acknowledgment, // need to specify the spring boot property
 			@Payload Greeting in //
 	) {
 		var message = Map.of("greeting", in, "partition", part, "offset", offset);
 		log.info(message.toString());
 		log.info("manually acknowledging the request");
 		acknowledgment.acknowledge();
+		this.counter.incrementAndGet();
 	}
 
 	@Bean
@@ -119,7 +123,8 @@ class SpringIntegrationKafkaConfiguration {
 		var inboundKafka = Kafka//
 				.messageDrivenChannelAdapter(consumerFactory, containerProperties) //
 				.get();
-		return IntegrationFlow.from(inboundKafka) //
+		return IntegrationFlow //
+				.from(inboundKafka) //
 				.handle((GenericHandler<Greeting>) (payload, headers) -> {
 					var joinedKeys = String.join(",", headers.keySet());
 					var map = Map.of("topic", NOTIFICATIONS, "keys", joinedKeys, "payload", payload, "file name",
