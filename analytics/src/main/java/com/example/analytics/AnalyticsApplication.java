@@ -36,7 +36,7 @@ public class AnalyticsApplication {
     }
 
     @Bean
-    Supplier<PageViewEvent> pageViewEventSupplier() {
+    public Supplier<PageViewEvent> pageViewEventSupplier() {
         var names = List.of("mfisher", "dyser", "schacko", "abilan", "ozhurakousky", "grussell");
         var pages = List.of("blog", "sitemap", "initializr", "news", "colophon", "about");
         return () -> {
@@ -47,7 +47,7 @@ public class AnalyticsApplication {
     }
 
     @Bean
-      Function<KStream<String, PageViewEvent>, KStream<String, Long>> process() {
+    public Function<KStream<String, PageViewEvent>, KStream<String, Long>> process() {
         return kStream -> kStream //
                 .filter((key, value) -> value.duration() > 10) //
                 .map((key, value) -> new KeyValue<>(value.page(), "0"))//
@@ -57,7 +57,7 @@ public class AnalyticsApplication {
     }
 
     @Bean
-    Consumer<KTable<String, Long>> pageCount() {
+    public Consumer<KTable<String, Long>> pageCount() {
         return counts -> counts.toStream().foreach((key, value) -> log.info(key + "=" + value));
     }
 }
@@ -68,7 +68,7 @@ class CountRestController {
 
     private final InteractiveQueryService iqs;
 
-    CountRestController(  InteractiveQueryService iqs) {
+    CountRestController(InteractiveQueryService iqs) {
         this.iqs = iqs;
     }
 
