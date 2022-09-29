@@ -51,7 +51,7 @@ public class AnalyticsApplication {
                 .filter((key, value) -> value.duration() > 10) //
                 .map((key, value) -> new KeyValue<>(value.page(), "0"))//
                 .groupByKey(Grouped.with(Serdes.String(), Serdes.String())) //
-                .count(Materialized.as(AnalyticsApplication.PAGE_COUNT_MV))// wroxdb behind the scenes
+                .count(Materialized.as(AnalyticsApplication.PAGE_COUNT_MV))// rocksdb behind the scenes
                 .toStream();
     }
 
