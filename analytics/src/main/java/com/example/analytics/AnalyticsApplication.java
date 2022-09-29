@@ -32,7 +32,7 @@ public class AnalyticsApplication {
     public static void main(String[] args) {
         SpringApplication.run(AnalyticsApplication.class, args);
     }
-
+/*
     // this is S C Kafka
     @Bean
     public Supplier<PageViewEvent> pageViewEventSupplier() {
@@ -43,7 +43,7 @@ public class AnalyticsApplication {
             var rName = pages.get(new Random().nextInt(names.size()));
             return new PageViewEvent(rName, rPage, Math.random() > .5 ? 10 : 1000);
         };
-    }
+    }*/
 
     // these next two are S C Kafka Streams
     @Bean
@@ -75,7 +75,8 @@ class CountRestController {
     @GetMapping("/view")
     Map<String, PageViewEvent> counts() {
         var pageViewEvent = random();
-        var sent = this.streamBridge.send("pageViewEventSupplier-out-0", pageViewEvent);
+//        var sent = this.streamBridge.send("pageViewEventSupplier-out-0", pageViewEvent);
+        var sent = this.streamBridge.send("pvs", pageViewEvent);
         Assert.state(sent, "the " + pageViewEvent.toString() + " has not been sent");
         return Map.of("message", pageViewEvent);
     }
