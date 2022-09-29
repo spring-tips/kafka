@@ -74,7 +74,9 @@ class CountRestController {
     @GetMapping("/view")
     Map<String, PageViewEvent> counts() {
         var pageViewEvent = random();
-        var sent = this.streamBridge.send("pvs", pageViewEvent);
+        // make sure to specify the `outputBindings` business, otherwise use `pvs` in this param
+        var sent = this.streamBridge.send(
+           "pageViewEventSupplier-out-0" , pageViewEvent);
         Assert.state(sent, "the " + pageViewEvent + " has not been sent");
         return Map.of("message", pageViewEvent);
     }
