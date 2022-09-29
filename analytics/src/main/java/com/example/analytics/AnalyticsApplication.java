@@ -21,7 +21,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 @Slf4j
 @SpringBootApplication
@@ -75,9 +74,8 @@ class CountRestController {
     @GetMapping("/view")
     Map<String, PageViewEvent> counts() {
         var pageViewEvent = random();
-//        var sent = this.streamBridge.send("pageViewEventSupplier-out-0", pageViewEvent);
         var sent = this.streamBridge.send("pvs", pageViewEvent);
-        Assert.state(sent, "the " + pageViewEvent.toString() + " has not been sent");
+        Assert.state(sent, "the " + pageViewEvent + " has not been sent");
         return Map.of("message", pageViewEvent);
     }
 
