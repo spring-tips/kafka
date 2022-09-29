@@ -7,17 +7,15 @@ import org.apache.kafka.streams.kstream.Grouped;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.KTable;
 import org.apache.kafka.streams.kstream.Materialized;
-import org.apache.kafka.streams.state.QueryableStoreTypes;
-import org.apache.kafka.streams.state.ReadOnlyKeyValueStore;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.stream.binder.kafka.streams.InteractiveQueryService;
+import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -35,6 +33,7 @@ public class AnalyticsApplication {
         SpringApplication.run(AnalyticsApplication.class, args);
     }
 
+    // this is S C Kafka
     @Bean
     public Supplier<PageViewEvent> pageViewEventSupplier() {
         var names = List.of("mfisher", "dyser", "schacko", "abilan", "ozhurakousky", "grussell");
@@ -46,6 +45,7 @@ public class AnalyticsApplication {
         };
     }
 
+    // these next two are S C Kafka Streams
     @Bean
     public Function<KStream<String, PageViewEvent>, KStream<String, Long>> process() {
         return kStream -> kStream //
@@ -66,24 +66,26 @@ public class AnalyticsApplication {
 @ResponseBody
 class CountRestController {
 
-    private final InteractiveQueryService iqs;
+    private final StreamBridge streamBridge;
 
-    CountRestController(InteractiveQueryService iqs) {
-        this.iqs = iqs;
+    CountRestController(StreamBridge streamBridge) {
+        this.streamBridge = streamBridge;
     }
 
-    @GetMapping("/counts")
-    Map<String, Long> counts() {
-        ReadOnlyKeyValueStore<String, Long> queryableStoreType =
-                this.iqs.getQueryableStore(AnalyticsApplication.PAGE_COUNT_MV, QueryableStoreTypes.keyValueStore());
-        var counts = new HashMap<String, Long>();
-        try (var all = queryableStoreType.all()) {
-            while (all.hasNext()) {
-                var value = all.next();
-                counts.put(value.key, value.value);
-            }
-        }
-        return counts;
+    @GetMapping("/view")
+    Map<String, PageViewEvent> counts() {
+        var pageViewEvent = random();
+        var sent = this.streamBridge.send("pageViewEventSupplier-out-0", pageViewEvent);
+        Assert.state(sent, "the " + pageViewEvent.toString() + " has not been sent");
+        return Map.of("message", pageViewEvent);
+    }
+
+    private PageViewEvent random() {
+        var names = List.of("mfisher", "dyser", "schacko", "abilan", "ozhurakousky", "grussell");
+        var pages = List.of("blog", "sitemap", "initializr", "news", "colophon", "about");
+        var rPage = pages.get(new Random().nextInt(pages.size()));
+        var rName = pages.get(new Random().nextInt(names.size()));
+        return new PageViewEvent(rName, rPage, Math.random() > .5 ? 10 : 1000);
     }
 }
 
