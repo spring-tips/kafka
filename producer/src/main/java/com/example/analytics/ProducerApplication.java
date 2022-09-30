@@ -2,9 +2,12 @@ package com.example.analytics;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
+import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.function.StreamBridge;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,12 +26,21 @@ public class ProducerApplication {
     }
 }
 
+@Configuration
+class KafkaConfiguration {
+
+    @Bean
+    NewTopic pageViewsTopic() {
+        return new NewTopic("page_views", 1, (short) 1);
+    }
+}
+
 @Controller
 @ResponseBody
 class ViewController {
 
     private final StreamBridge streamBridge;
-    private final ObjectMapper objectMapper ;
+    private final ObjectMapper objectMapper;
 
     ViewController(StreamBridge streamBridge, ObjectMapper objectMapper) {
         this.streamBridge = streamBridge;
@@ -36,12 +48,13 @@ class ViewController {
     }
 
     @SneakyThrows
-    private String json (Object o) {
-        return this.objectMapper.writeValueAsString(o ) ;
+    private String json(Object o) {
+        return this.objectMapper.writeValueAsString(o);
     }
+
     @GetMapping("/view")
     Map<String, String> counts() {
-        var pageViewEvent = json (  random());
+        var pageViewEvent = json(random());
         var sent = this.streamBridge.send(
                 "pageViewEvent-out-0", pageViewEvent);
         Assert.state(sent, "the " + pageViewEvent + " has not been sent");
