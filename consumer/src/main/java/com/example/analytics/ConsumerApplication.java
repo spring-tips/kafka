@@ -23,6 +23,7 @@ public class ConsumerApplication {
     }
 
 }
+/*
 
 @Configuration
 class KafkaConfiguration {
@@ -32,6 +33,7 @@ class KafkaConfiguration {
         return new NewTopic("page_counts", 1, (short) 1);
     }
 }
+*/
 
 @Slf4j
 @Configuration
@@ -40,15 +42,11 @@ class PageViewAnalyticsConfiguration {
 
     static final String PAGE_COUNT_MV = "pcmv";
 
-    @SneakyThrows
-    private <T> T read(ObjectMapper objectMapper, String json, Class<T> clazz) {
-        return objectMapper.readValue(json, clazz);
-    }
 
     @Bean
-    Function<KStream<String, String>, KStream<String, Long>> process(ObjectMapper objectMapper) {
+    Function<KStream<String, PageViewEvent>, KStream<String, Long>> process( ) {
         return kStream -> kStream //
-                .mapValues(s -> read(objectMapper, s, PageViewEvent.class))
+                //.mapValues(s -> read(objectMapper, s, PageViewEvent.class))
                 .filter((key, value) -> value.duration() > 10) //
                 .map((key, value) -> new KeyValue<>(value.page(), "0"))//
                 .groupByKey(Grouped.with(Serdes.String(), Serdes.String())) //
