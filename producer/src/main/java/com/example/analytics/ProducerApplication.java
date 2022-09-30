@@ -8,7 +8,9 @@ import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.annotation.ServiceActivator;
+import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.MessageChannels;
+import org.springframework.integration.kafka.dsl.Kafka;
 import org.springframework.integration.kafka.outbound.KafkaProducerMessageHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -77,13 +79,24 @@ class IntegrationConfiguration {
         return MessageChannels.direct().get();
     }
 
-
+/*
     @Bean
     @ServiceActivator(inputChannel = "toKafka")
     MessageHandler handler(KafkaTemplate<String, PageViewEvent> myKafkaTemplate) {
         return new KafkaProducerMessageHandler<>(myKafkaTemplate);
     }
+*/
 
+    @Bean
+    IntegrationFlow outboundKafkaFlow (MessageChannel toKafka , KafkaTemplate <String,PageViewEvent> pageViewEventKafkaTemplate){
+        var kafkaOutboundAdapter = Kafka
+                .outboundChannelAdapter( pageViewEventKafkaTemplate)
+                .get() ;
+        return IntegrationFlow
+                .from(toKafka)
+                .handle( kafkaOutboundAdapter)
+                .get() ;
+    }
 
 }
 
