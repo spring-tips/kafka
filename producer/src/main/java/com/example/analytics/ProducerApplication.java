@@ -39,12 +39,10 @@ public class ProducerApplication {
     }
 
     @KafkaListener(
-//            properties = "value.deserializer=org.apache.kafka.common.serialization.ByteArrayDeserializer",
             groupId = "page_views_group", topics = "page_views")
     public void consume(PageViewEvent json) {
         System.out.println("got it from the @KafkaListener " + json);
     }
-
 
     @Bean
     Consumer<PageViewEvent> test() {

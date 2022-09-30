@@ -86,7 +86,11 @@
 	</dependencyManagement>
 
 	<build>
-		<plugins>
+		<plugins>	<plugin>
+			<groupId>io.spring.javaformat</groupId>
+			<artifactId>spring-javaformat-maven-plugin</artifactId>
+			<version>0.0.34</version>
+		</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
