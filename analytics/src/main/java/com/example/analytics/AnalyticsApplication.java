@@ -34,7 +34,7 @@ public class AnalyticsApplication {
 /*
     // this is S C Kafka
     @Bean
-    public Supplier<PageViewEvent> pageViewEventSupplier() {
+     Supplier<PageViewEvent> pageViewEventSupplier() {
         var names = List.of("mfisher", "dyser", "schacko", "abilan", "ozhurakousky", "grussell");
         var pages = List.of("blog", "sitemap", "initializr", "news", "colophon", "about");
         return () -> {
@@ -46,7 +46,7 @@ public class AnalyticsApplication {
 
     // these next two are S C Kafka Streams
     @Bean
-    public Function<KStream<String, PageViewEvent>, KStream<String, Long>> process() {
+    Function<KStream<String, PageViewEvent>, KStream<String, Long>> process() {
         return kStream -> kStream //
                 .filter((key, value) -> value.duration() > 10) //
                 .map((key, value) -> new KeyValue<>(value.page(), "0"))//
@@ -56,7 +56,7 @@ public class AnalyticsApplication {
     }
 
     @Bean
-    public Consumer<KTable<String, Long>> pageCount() {
+    Consumer<KTable<String, Long>> pageCount() {
         return counts -> counts.toStream().foreach((key, value) -> log.info(key + "=" + value));
     }
 }
@@ -76,7 +76,7 @@ class CountRestController {
         var pageViewEvent = random();
         // make sure to specify the `outputBindings` business, otherwise use `pvs` in this param
         var sent = this.streamBridge.send(
-           "pageViewEventSupplier-out-0" , pageViewEvent);
+                "pageViewEventSupplier-out-0", pageViewEvent);
         Assert.state(sent, "the " + pageViewEvent + " has not been sent");
         return Map.of("message", pageViewEvent);
     }
