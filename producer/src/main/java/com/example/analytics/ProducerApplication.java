@@ -7,18 +7,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.MessageChannels;
 import org.springframework.integration.kafka.dsl.Kafka;
-import org.springframework.integration.kafka.outbound.KafkaProducerMessageHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.kafka.support.converter.JsonMessageConverter;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.messaging.MessageChannel;
-import org.springframework.messaging.MessageHandler;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
@@ -40,11 +38,10 @@ public class ProducerApplication {
         SpringApplication.run(ProducerApplication.class, args);
     }
 
-
     @KafkaListener(
-            //  properties = "value.deserializer=org.springframework.kafka.support.serializer.JsonDeserializer" ,
+//            properties = "value.deserializer=org.apache.kafka.common.serialization.ByteArrayDeserializer",
             groupId = "page_views_group", topics = "page_views")
-    public void consume(String json) {
+    public void consume(PageViewEvent json) {
         System.out.println("got it from the @KafkaListener " + json);
     }
 
@@ -57,6 +54,11 @@ public class ProducerApplication {
 
 @Configuration
 class KafkaConfiguration {
+
+    @Bean
+    JsonMessageConverter jsonMessageConverter() {
+        return new JsonMessageConverter();
+    }
 
     @Bean
     NewTopic pageViewsTopic() {
@@ -79,23 +81,15 @@ class IntegrationConfiguration {
         return MessageChannels.direct().get();
     }
 
-/*
     @Bean
-    @ServiceActivator(inputChannel = "toKafka")
-    MessageHandler handler(KafkaTemplate<String, PageViewEvent> myKafkaTemplate) {
-        return new KafkaProducerMessageHandler<>(myKafkaTemplate);
-    }
-*/
-
-    @Bean
-    IntegrationFlow outboundKafkaFlow (MessageChannel toKafka , KafkaTemplate <String,PageViewEvent> pageViewEventKafkaTemplate){
+    IntegrationFlow outboundKafkaFlow(MessageChannel toKafka, KafkaTemplate<String, PageViewEvent> pageViewEventKafkaTemplate) {
         var kafkaOutboundAdapter = Kafka
-                .outboundChannelAdapter( pageViewEventKafkaTemplate)
-                .get() ;
+                .outboundChannelAdapter(pageViewEventKafkaTemplate)
+                .get();
         return IntegrationFlow
                 .from(toKafka)
-                .handle( kafkaOutboundAdapter)
-                .get() ;
+                .handle(kafkaOutboundAdapter)
+                .get();
     }
 
 }
