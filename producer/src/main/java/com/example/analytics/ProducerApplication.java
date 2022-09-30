@@ -1,27 +1,23 @@
 package com.example.analytics;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.SneakyThrows;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.function.StreamBridge;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.integration.annotation.ServiceActivator;
+import org.springframework.integration.dsl.MessageChannels;
 import org.springframework.integration.kafka.outbound.KafkaProducerMessageHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHandler;
-import org.springframework.messaging.support.GenericMessage;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,8 +42,8 @@ public class ProducerApplication {
     @KafkaListener(
             //  properties = "value.deserializer=org.springframework.kafka.support.serializer.JsonDeserializer" ,
             groupId = "page_views_group", topics = "page_views")
-    public void consume(String pageViewEvent) {
-        System.out.println("got it from the @KafkaListener " + pageViewEvent);
+    public void consume(String json) {
+        System.out.println("got it from the @KafkaListener " + json);
     }
 
 
@@ -64,6 +60,31 @@ class KafkaConfiguration {
     NewTopic pageViewsTopic() {
         return new NewTopic("page_views", 1, (short) 1);
     }
+
+    @Bean
+    KafkaTemplate<String, PageViewEvent> myKafkaTemplate(ProducerFactory<String, PageViewEvent> pf) {
+        return new KafkaTemplate<>(pf,
+                Collections.singletonMap(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class));
+    }
+
+}
+
+@Configuration
+class IntegrationConfiguration {
+
+    @Bean
+    MessageChannel toKafka() {
+        return MessageChannels.direct().get();
+    }
+
+
+    @Bean
+    @ServiceActivator(inputChannel = "toKafka")
+    MessageHandler handler(KafkaTemplate<String, PageViewEvent> myKafkaTemplate) {
+        return new KafkaProducerMessageHandler<>(myKafkaTemplate);
+    }
+
+
 }
 
 @Controller
@@ -71,49 +92,27 @@ class KafkaConfiguration {
 class ViewController {
 
     private final StreamBridge streamBridge;
-    private final ObjectMapper objectMapper;
+    private final KafkaTemplate<String, PageViewEvent> myKafkaTemplate;
+    private final MessageChannel toKafka;
 
-    @Autowired
-    @Lazy
-    KafkaTemplate<String, String> myKafkaTemplate;
-
-    @Autowired
-    ConfigurableApplicationContext context;
-
-    ViewController(StreamBridge streamBridge, ObjectMapper objectMapper) {
+    ViewController(KafkaTemplate<String, PageViewEvent> myKafkaTemplate, MessageChannel toKafka, StreamBridge streamBridge) {
         this.streamBridge = streamBridge;
-        this.objectMapper = objectMapper;
+        this.toKafka = toKafka;
+        this.myKafkaTemplate = myKafkaTemplate;
     }
 
-    @Bean
-    public KafkaTemplate<String, String> myKafkaTemplate(ProducerFactory<String, String> pf) {
-        return new KafkaTemplate<>(pf,
-                Collections.singletonMap(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class));
-    }
-
-    @ServiceActivator(inputChannel = "toKafka")
-    @Bean
-    public MessageHandler handler(KafkaTemplate<String, String> myKafkaTemplate) {
-        return new KafkaProducerMessageHandler<>(myKafkaTemplate);
-    }
-
-    @SneakyThrows
-    private String json(Object o) {
-        return this.objectMapper.writeValueAsString(o);
-    }
 
     @GetMapping("/view")
-    Map<String, String> counts() {
-        var pageViewEvent = json(random());
-        var sent = this.streamBridge.send(
-                "pageViewEvent-out-0", pageViewEvent);
+    Map<String, PageViewEvent> counts() {
+        var pageViewEvent = random();
+        var sent = this.streamBridge.send("pageViewEvent-out-0", pageViewEvent);
         Assert.state(sent, "the " + pageViewEvent + " has not been sent");
         return Map.of("message", pageViewEvent);
     }
 
     @GetMapping("/view1")
-    Map<String, String> counts1() throws ExecutionException, InterruptedException {
-        var pageViewEvent = json(random());
+    Map<String, PageViewEvent> counts1() throws ExecutionException, InterruptedException {
+        var pageViewEvent = random();
         var sent = myKafkaTemplate.send("page_views", pageViewEvent);
         sent.get();
         Assert.state(sent.isDone(), "the " + pageViewEvent + " has not been sent");
@@ -121,15 +120,10 @@ class ViewController {
     }
 
     @GetMapping("/view2")
-    Map<String, String> counts2() throws ExecutionException, InterruptedException {
-        var pageViewEvent = json(random());
-
-        Map<String, Object> headers = Collections.singletonMap(KafkaHeaders.TOPIC, "page_views");
-
-        MessageChannel toKafka = context.getBean("toKafka", MessageChannel.class);
-
-        final boolean send = toKafka.send(new GenericMessage<>(pageViewEvent, headers));
-
+    Map<String, PageViewEvent> counts2() throws ExecutionException, InterruptedException {
+        var pageViewEvent = random();
+        var headers = Map.of(KafkaHeaders.TOPIC, "page_views");
+        var send = toKafka.send(MessageBuilder.withPayload(pageViewEvent).copyHeaders(headers).build());
         Assert.state(send, "the " + pageViewEvent + " has not been sent");
         return Map.of("message", pageViewEvent);
     }
