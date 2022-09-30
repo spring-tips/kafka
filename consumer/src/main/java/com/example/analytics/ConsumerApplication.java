@@ -3,6 +3,7 @@ package com.example.analytics;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.kstream.*;
@@ -21,6 +22,15 @@ public class ConsumerApplication {
         SpringApplication.run(ConsumerApplication.class, args);
     }
 
+}
+
+@Configuration
+class KafkaConfiguration {
+
+    @Bean
+    NewTopic pageCountsTopic() {
+        return new NewTopic("page_counts", 1, (short) 1);
+    }
 }
 
 @Slf4j
