@@ -30,6 +30,9 @@ import java.util.Random;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Consumer;
 
+/**
+ * AOT doesn't support generics for things like {@link KafkaTemplate } and {@link  ProducerFactory}
+ */
 
 @SpringBootApplication
 public class ProducerApplication {
@@ -64,7 +67,7 @@ class KafkaConfiguration {
     }
 
     @Bean
-    KafkaTemplate<String, PageViewEvent> myKafkaTemplate(ProducerFactory<String, PageViewEvent> pf) {
+    KafkaTemplate<Object, Object> myKafkaTemplate(ProducerFactory<Object, Object> pf) {
         return new KafkaTemplate<>(pf,
                 Collections.singletonMap(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class));
     }
@@ -80,7 +83,7 @@ class IntegrationConfiguration {
     }
 
     @Bean
-    IntegrationFlow outboundKafkaFlow(MessageChannel toKafka, KafkaTemplate<String, PageViewEvent> pageViewEventKafkaTemplate) {
+    IntegrationFlow outboundKafkaFlow(MessageChannel toKafka, KafkaTemplate<Object, Object> pageViewEventKafkaTemplate) {
         var kafkaOutboundAdapter = Kafka
                 .outboundChannelAdapter(pageViewEventKafkaTemplate)
                 .get();
@@ -97,10 +100,10 @@ class IntegrationConfiguration {
 class ViewController {
 
     private final StreamBridge streamBridge;
-    private final KafkaTemplate<String, PageViewEvent> myKafkaTemplate;
+    private final KafkaTemplate<Object, Object> myKafkaTemplate;
     private final MessageChannel toKafka;
 
-    ViewController(KafkaTemplate<String, PageViewEvent> myKafkaTemplate, MessageChannel toKafka, StreamBridge streamBridge) {
+    ViewController(KafkaTemplate<Object,Object> myKafkaTemplate, MessageChannel toKafka, StreamBridge streamBridge) {
         this.streamBridge = streamBridge;
         this.toKafka = toKafka;
         this.myKafkaTemplate = myKafkaTemplate;
