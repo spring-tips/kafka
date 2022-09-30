@@ -118,9 +118,7 @@ class ViewController {
     @GetMapping("/view1")
     Map<String, PageViewEvent> counts1() throws ExecutionException, InterruptedException {
         var pageViewEvent = random();
-        var sent = myKafkaTemplate.send("page_views", pageViewEvent);
-        sent.get();
-        Assert.state(sent.isDone(), "the " + pageViewEvent + " has not been sent");
+        myKafkaTemplate.send("page_views", pageViewEvent).get();
         return Map.of("message", pageViewEvent);
     }
 
@@ -128,8 +126,7 @@ class ViewController {
     Map<String, PageViewEvent> counts2() throws ExecutionException, InterruptedException {
         var pageViewEvent = random();
         var headers = Map.of(KafkaHeaders.TOPIC, "page_views");
-        var send = toKafka.send(MessageBuilder.withPayload(pageViewEvent).copyHeaders(headers).build());
-        Assert.state(send, "the " + pageViewEvent + " has not been sent");
+        toKafka.send(MessageBuilder.withPayload(pageViewEvent).copyHeaders(headers).build());
         return Map.of("message", pageViewEvent);
     }
 
