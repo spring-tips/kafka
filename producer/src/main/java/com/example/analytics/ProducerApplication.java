@@ -25,7 +25,6 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.support.MessageBuilder;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.Executors;
@@ -134,13 +133,14 @@ class RunnerConfiguration {
 	}
 
 	private static PageView randomPageView() {
-		var duration = Math.random() > .5 ? 10 : 1000;
-		var names = List.of("josh", "dave", "yuxin", "olga", "violetta", "madhura", "olivier", "grussell", "soby");
-		var pages = List.of("blog", "sitemap", "initializr", "news", "colophon", "about");
-		var rPage = pages.get(new Random().nextInt(pages.size()));
-		var rName = names.get(new Random().nextInt(names.size()));
-		return new PageView(rName, rPage, duration);
-	}
+        var duration = Math.random() > .5 ? 10 : 1000;
+        var names = "josh,dave,yuxin,olga,violetta,madhura,olivier,grussell,soby".split(","));
+        var pages = "blog,sitemap,initializr,news,colophon,about".split(",");
+		var random = new Random();
+		var rPage = pages[random.nextInt(pages.length)];
+        var rName = names[random.nextInt(names.length)];
+        return new PageView(rName, rPage, duration);
+    }
 
 }
 
