@@ -109,7 +109,6 @@ class ViewController {
         this.myKafkaTemplate = myKafkaTemplate;
     }
 
-
     @GetMapping("/view")
     Map<String, PageViewEvent> counts() {
         var pageViewEvent = random();

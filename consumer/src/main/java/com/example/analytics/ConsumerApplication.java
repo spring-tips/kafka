@@ -1,20 +1,20 @@
 package com.example.analytics;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KeyValue;
-import org.apache.kafka.streams.kstream.*;
+import org.apache.kafka.streams.kstream.Grouped;
+import org.apache.kafka.streams.kstream.KStream;
+import org.apache.kafka.streams.kstream.KTable;
+import org.apache.kafka.streams.kstream.Materialized;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+@Slf4j
 @SpringBootApplication
 public class ConsumerApplication {
 
@@ -22,35 +22,13 @@ public class ConsumerApplication {
         SpringApplication.run(ConsumerApplication.class, args);
     }
 
-}
-/*
-
-@Configuration
-class KafkaConfiguration {
-
     @Bean
-    NewTopic pageCountsTopic() {
-        return new NewTopic("page_counts", 1, (short) 1);
-    }
-}
-*/
-
-@Slf4j
-@Configuration
-class PageViewAnalyticsConfiguration {
-
-
-    static final String PAGE_COUNT_MV = "pcmv";
-
-
-    @Bean
-    Function<KStream<String, PageViewEvent>, KStream<String, Long>> process( ) {
-        return kStream -> kStream //
-                //.mapValues(s -> read(objectMapper, s, PageViewEvent.class))
-                .filter((key, value) -> value.duration() > 10) //
-                .map((key, value) -> new KeyValue<>(value.page(), "0"))//
-                .groupByKey(Grouped.with(Serdes.String(), Serdes.String())) //
-                .count(Materialized.as(PageViewAnalyticsConfiguration.PAGE_COUNT_MV))// rocksdb behind the scenes
+    Function<KStream<String, PageViewEvent>, KStream<String, Long>> processor() {
+        return kStream -> kStream
+                .filter((k, pve) -> pve.duration() > 0)
+                .map((k, pve) -> new KeyValue<>(pve.page(), 0L))
+                .groupByKey(Grouped.with(Serdes.String(), Serdes.Long()))
+                .count(Materialized.as("pcmv"))
                 .toStream();
     }
 
