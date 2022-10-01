@@ -135,7 +135,7 @@ class RunnerConfiguration {
 
 	private static PageView randomPageView() {
 		var duration = Math.random() > .5 ? 10 : 1000;
-		var names = List.of("josh", "dave", "yuxin", "olga", "violetta", "madhura", "olivier", "grussell", "sobe");
+		var names = List.of("josh", "dave", "yuxin", "olga", "violetta", "madhura", "olivier", "grussell", "soby");
 		var pages = List.of("blog", "sitemap", "initializr", "news", "colophon", "about");
 		var rPage = pages.get(new Random().nextInt(pages.size()));
 		var rName = names.get(new Random().nextInt(names.size()));
