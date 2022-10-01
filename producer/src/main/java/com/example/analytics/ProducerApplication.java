@@ -45,7 +45,6 @@ public class ProducerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProducerApplication.class, args);
 	}
-
 }
 
 @Configuration
@@ -67,13 +66,13 @@ class KafkaConfiguration {
 	}
 
 	@KafkaListener(groupId = "page_views_group", topics = "page_views")
-	public void pageViewsKafkaListener(@Header(KafkaHeaders.OFFSET) int offset, //
+	public void pageViewsKafkaListener( //
+			@Header(KafkaHeaders.OFFSET) int offset, //
 			@Header(KafkaHeaders.RECEIVED_PARTITION) int partition, //
 			@Payload PageViewEvent pageViewEvent, Acknowledgment acknowledgment) {
 		System.out.println("@KafkaListener(" + offset + "," + partition + "): " + pageViewEvent);
 		acknowledgment.acknowledge();
 	}
-
 }
 
 @Configuration
@@ -145,7 +144,6 @@ class RunnerConfiguration {
 		var rName = names.get(new Random().nextInt(names.size()));
 		return new PageViewEvent(rName, rPage, duration);
 	}
-
 }
 
 record PageViewEvent(String userId, String page, long duration) {
