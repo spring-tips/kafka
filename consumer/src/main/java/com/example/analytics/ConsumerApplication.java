@@ -18,24 +18,20 @@ import java.util.function.Function;
 @SpringBootApplication
 public class ConsumerApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(ConsumerApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(ConsumerApplication.class, args);
+	}
 
-    @Bean
-    Function<KStream<String, PageViewEvent>, KStream<String, Long>> processor() {
-        return kStream -> kStream
-                .filter((k, pve) -> pve.duration() > 0)
-                .map((k, pve) -> new KeyValue<>(pve.page(), 0L))
-                .groupByKey(Grouped.with(Serdes.String(), Serdes.Long()))
-                .count(Materialized.as("pcmv"))
-                .toStream();
-    }
+	@Bean
+	Function<KStream<String, PageViewEvent>, KStream<String, Long>> processor() {
+		return kStream -> kStream.filter((k, pve) -> pve.duration() > 0).map((k, pve) -> new KeyValue<>(pve.page(), 0L))
+				.groupByKey(Grouped.with(Serdes.String(), Serdes.Long())).count(Materialized.as("pcmv")).toStream();
+	}
 
-    @Bean
-    Consumer<KTable<String, Long>> pageCount() {
-        return counts -> counts.toStream().foreach((key, value) -> log.info(key + "=" + value));
-    }
+	@Bean
+	Consumer<KTable<String, Long>> pageCount() {
+		return counts -> counts.toStream().foreach((key, value) -> log.info(key + "=" + value));
+	}
 
 }
 
