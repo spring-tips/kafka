@@ -132,13 +132,17 @@ class RunnerConfiguration {
 		channel.send(message);
 	}
 
+	private static String random(String[] arr) {
+		var indx = new Random().nextInt(arr.length);
+		return arr[indx];
+	}
+
 	private static PageView randomPageView() {
         var duration = Math.random() > .5 ? 10 : 1000;
         var names = "josh,dave,yuxin,olga,violetta,madhura,olivier,grussell,soby".split(","));
         var pages = "blog,sitemap,initializr,news,colophon,about".split(",");
-		var random = new Random();
-		var rPage = pages[random.nextInt(pages.length)];
-        var rName = names[random.nextInt(names.length)];
+		var rPage = random(pages);
+        var rName = random (names);
         return new PageView(rName, rPage, duration);
     }
 
