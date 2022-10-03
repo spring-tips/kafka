@@ -23,7 +23,7 @@ public class ConsumerApplication {
 	}
 
 	@Bean
-	Function<KStream<String, PageViewEvent>, KStream<String, Long>> processor() {
+	Function<KStream<String, PageView>, KStream<String, Long>> processor() {
 		return kStream -> kStream.filter((k, pve) -> pve.duration() > 0).map((k, pve) -> new KeyValue<>(pve.page(), 0L))
 				.groupByKey(Grouped.with(Serdes.String(), Serdes.Long())).count(Materialized.as("pcmv")).toStream();
 	}
@@ -35,5 +35,5 @@ public class ConsumerApplication {
 
 }
 
-record PageViewEvent(String userId, String page, long duration) {
+record PageView(String userId, String page, long duration) {
 }

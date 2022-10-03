@@ -138,13 +138,13 @@ class RunnerConfiguration {
 	}
 
 	private static PageView randomPageView() {
-        var duration = Math.random() > .5 ? 10 : 1000;
-        var names = "josh,dave,yuxin,olga,violetta,madhura,olivier,grussell,soby".split(","));
-        var pages = "blog,sitemap,initializr,news,colophon,about".split(",");
+		var duration = Math.random() > .5 ? 10 : 1000;
+		var names = "josh,dave,yuxin,olga,violetta,madhura,olivier,grussell,soby".split(",");
+		var pages = "blog,sitemap,initializr,news,colophon,about".split(",");
 		var rPage = random(pages);
-        var rName = random (names);
-        return new PageView(rName, rPage, duration);
-    }
+		var rName = random(names);
+		return new PageView(rName, rPage, duration);
+	}
 
 }
 
