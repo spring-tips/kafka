@@ -66,8 +66,8 @@ class KafkaConfiguration {
 	public void pageViewsKafkaListener( //
 			@Header(KafkaHeaders.OFFSET) int offset, //
 			@Header(KafkaHeaders.RECEIVED_PARTITION) int partition, //
-			@Payload PageView pageViewEvent, Acknowledgment acknowledgment) {
-		System.out.println("@KafkaListener(" + offset + "," + partition + "): " + pageViewEvent);
+			@Payload PageView pageView, Acknowledgment acknowledgment) {
+		System.out.println("@KafkaListener(" + offset + "," + partition + "): " + pageView);
 		acknowledgment.acknowledge();
 	}
 
